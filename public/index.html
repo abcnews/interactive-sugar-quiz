@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sugar Quiz</title>
+    <style>
+      body {
+        background-color: #f9f9f9;
+      }
+    </style>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <div data-mount id="sugar:question:Coke"></div>
+    <div data-mount id="sugar:question:WeetBix"></div>
+    <div data-mount id="sugar:question:NutriGrain"></div>
+    <div data-mount id="sugar:question:OrangeJuice"></div>
+    <div data-mount id="sugar:question:RaisinToast"></div>
+    <div data-mount id="sugar:question:Yoghurt"></div>
+    <div data-mount id="sugar:question:Jam"></div>
+    <div data-mount id="sugar:question:BakedBeans"></div>
+    <div data-mount id="sugar:question:Ketchup"></div>
+    <div data-mount id="sugar:question:Chocolate"></div>
+    <div data-mount id="sugar:report"></div>
+    <!-- Mock Odyssey's loaded event so the `whenOdysseyLoaded` promise resolves -->
+    <script>
+      window.dispatchEvent(new CustomEvent('odyssey:api'));
+    </script>
+  </body>
+</html>
