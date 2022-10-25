@@ -11,6 +11,13 @@
 </script>
 
 <div out:fade>
+  <input
+    type="range"
+    max={options.length - 1}
+    bind:value={estimate}
+    on:mousedown={onInteract}
+    on:touchstart={onInteract}
+  />
   <ul>
     {#each options as option, optionIndex}
       <li
@@ -21,13 +28,6 @@
       </li>
     {/each}
   </ul>
-  <input
-    type="range"
-    max={options.length - 1}
-    bind:value={estimate}
-    on:mousedown={onInteract}
-    on:touchstart={onInteract}
-  />
   {#if $hints}
     <Hint />
   {/if}
@@ -38,6 +38,56 @@
     position: relative;
     margin: 0 -8px;
     width: calc(100% + 16px);
+  }
+
+  input {
+    -webkit-appearance: none;
+    position: absolute;
+    top: -16px;
+    padding: 0;
+    width: 100%;
+    height: 44px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input:focus-visible {
+    outline: auto;
+  }
+
+  input::-webkit-slider-runnable-track {
+    background: none;
+    height: 100%;
+  }
+
+  input::-moz-range-track {
+    background: none;
+    height: 100%;
+  }
+
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    padding: 2px;
+    width: 19px;
+    height: 44px;
+    background-color: var(--bg, #f9f9f9);
+    background-image: url('./icons/handle.svg');
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
+  }
+
+  input::-moz-range-thumb {
+    padding: 2px;
+    width: 19px;
+    height: 44px;
+    background-color: var(--bg, #f9f9f9);
+    background-image: url('./icons/handle.svg');
+    background-repeat: no-repeat;
+    background-position: 2px 2px;
   }
 
   ul {
@@ -54,7 +104,7 @@
     opacity: 0;
     transform: translate(calc(-1 * var(--sugar-option-offset)), 0);
     position: absolute;
-    top: -32px;
+    top: -36px;
     left: var(--sugar-option-offset);
     margin: 0;
     padding: 0;
@@ -73,52 +123,5 @@
 
   li.isVisible {
     opacity: 1;
-  }
-
-  input {
-    -webkit-appearance: none;
-    position: absolute;
-    top: -16px;
-    padding: 0;
-    width: 100%;
-    height: 48px;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  input:focus {
-    outline: none;
-  }
-
-  :is(input::-webkit-slider-runnable-track, input::-moz-range-track) {
-    background: none;
-    height: 100%;
-  }
-
-  input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    box-sizing: content-box;
-    border: 2px solid var(--bg, #f9f9f9);
-    width: 15px;
-    height: 40px;
-    background-color: transparent;
-    background-image: url('./icons/handle.svg');
-    background-repeat: no-repeat;
-    background-position: center top;
-  }
-
-  input::-moz-range-thumb {
-    appearance: none;
-    box-sizing: content-box;
-    border: 2px solid var(--bg, #f9f9f9);
-    border-top: none;
-    border-bottom: none;
-    border-radius: 0;
-    width: 15px;
-    height: 40px;
-    background-color: transparent;
-    background-image: url('./icons/handle.svg');
-    background-repeat: no-repeat;
-    background-position: center top;
   }
 </style>

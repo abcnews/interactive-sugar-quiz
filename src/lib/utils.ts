@@ -1,5 +1,8 @@
 import { DISTANCES_SCORES, FEEDBACK } from './constants';
 
+export const getImageURL = (questionKey: string, frame: number) =>
+  `${__webpack_public_path__}images/${questionKey}-${frame + 1}.jpg`;
+
 export const getFeedbackForDistance = (distance: number): string => {
   const absDistance = Math.abs(distance);
 

@@ -34,14 +34,19 @@
 
 <div>
   {#if !hasGuessed}
-    <button class="stepper decrementer" disabled={hasGuessed} on:click={() => decrement()} out:fade>
+    <button class="stepper decrementer" disabled={estimate === 0 || hasGuessed} on:click={() => decrement()} out:fade>
       <svg viewBox="0 0 28 4" xmlns="http://www.w3.org/2000/svg">
         <g stroke-linecap="round" stroke-width="4">
           <path d="M2,2 L26,2" />
         </g>
       </svg>
     </button>
-    <button class="stepper incrementer" disabled={hasGuessed} on:click={() => increment()} out:fade>
+    <button
+      class="stepper incrementer"
+      disabled={estimate + 1 === options.length || hasGuessed}
+      on:click={() => increment()}
+      out:fade
+    >
       <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
         <g stroke-linecap="round" stroke-width="4">
           <path d="M2,14 L26,14" />
@@ -72,9 +77,16 @@
     border-radius: 3px;
     cursor: pointer;
     bottom: 16px;
+    transition: opacity 0.25s;
+  }
+
+  button[disabled] {
+    pointer-events: none;
+    opacity: 0.5;
   }
 
   .stepper {
+    bottom: 40px;
     padding: 8px;
     width: 44px;
     height: 44px;

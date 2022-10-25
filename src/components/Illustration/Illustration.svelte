@@ -1,5 +1,7 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import { QUESTIONS } from '$lib/data';
+  import { getImageURL } from '$lib/utils';
 
   export let questionKey: keyof typeof QUESTIONS;
   export let frame = 0;
@@ -7,7 +9,17 @@
   let { name, options, imageOffset } = QUESTIONS[questionKey];
 
   $: alt = `${options[frame]} of ${name}`;
-  $: src = `${__webpack_public_path__}images/${questionKey}-${frame + 1}.jpg`;
+  $: src = getImageURL(questionKey, frame);
+
+  onMount(() => {
+    requestAnimationFrame(() => {
+      options.forEach((_option, index) => {
+        const imgEl = new Image();
+
+        imgEl.src = getImageURL(questionKey, index);
+      });
+    });
+  });
 </script>
 
 <div style={imageOffset ? `--sugar-illustration-image-offset: ${imageOffset}px` : undefined}>
