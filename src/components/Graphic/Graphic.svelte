@@ -102,6 +102,7 @@
   }
 
   .track {
+    isolation: isolate;
     position: relative;
     width: 100%;
     height: 16px;
