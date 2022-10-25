@@ -221,8 +221,4 @@
   [data-marker='estimate'] .label.tooHigh div {
     right: 100%;
   }
-
-  /* .isEstimateHigherThanLimit [data-marker='answer'] .label div {
-    right: 100%;
-  } */
 </style>
