@@ -29,3 +29,5 @@ export const breakpoint = readable(breakpointMQL.matches, set => {
     breakpointMQL.removeEventListener('change', onChange);
   };
 });
+
+export const hints = writable<boolean>(true);

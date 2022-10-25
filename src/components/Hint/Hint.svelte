@@ -28,7 +28,7 @@
   div {
     transform: translate(-50%, 0);
     position: absolute;
-    bottom: -24px;
+    top: 24px;
     left: 50%;
     color: var(--sugar-primary-colour);
     font-size: 0.75rem;

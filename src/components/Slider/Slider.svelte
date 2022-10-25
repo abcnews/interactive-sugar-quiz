@@ -1,87 +1,86 @@
 <script lang="ts">
   import { fade } from 'svelte/transition';
   import Hint from '$components/Hint/Hint.svelte';
+  import { hints } from '$lib/stores';
   import { getMeasuresSegments } from '$lib/utils';
 
   export let options: string[];
   export let estimate: number;
 
-  let hasInteracted = false;
-
-  const onInteract = () => (hasInteracted = true);
+  const onInteract = () => hints.set(false);
 </script>
 
 <div out:fade>
-  <datalist>
+  <ul>
     {#each options as option, optionIndex}
-      <option
+      <li
         style={`--sugar-option-offset: ${(optionIndex / (options.length - 1)) * 100}%`}
         class:isVisible={estimate === optionIndex}
-        class:nearStart={optionIndex / (options.length - 1) < 0.15}
-        class:nearEnd={optionIndex / (options.length - 1) > 0.85}
-        value={optionIndex}
-        label={getMeasuresSegments(option).join(' ')}
-      />
+      >
+        {getMeasuresSegments(option).join(' ')}
+      </li>
     {/each}
-  </datalist>
+  </ul>
   <input
     type="range"
-    class="slider"
-    min={0}
     max={options.length - 1}
-    step={1}
     bind:value={estimate}
     on:mousedown={onInteract}
     on:touchstart={onInteract}
   />
-  {#if !hasInteracted}
+  {#if $hints}
     <Hint />
   {/if}
 </div>
 
 <style>
-  datalist {
+  div {
+    position: relative;
+    margin: 0 -8px;
+    width: calc(100% + 16px);
+  }
+
+  ul {
     pointer-events: none;
     display: block;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    position: relative;
+    height: 0;
+    list-style: none;
   }
 
-  option {
+  li {
     opacity: 0;
-    transform: translate(-50%, 0);
+    transform: translate(calc(-1 * var(--sugar-option-offset)), 0);
     position: absolute;
-    bottom: 20px;
+    top: -32px;
     left: var(--sugar-option-offset);
+    margin: 0;
+    padding: 0;
     color: var(--sugar-primary-colour);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: bold;
+    white-space: nowrap;
   }
 
-  option.isVisible {
+  @media (min-width: 960px) {
+    li {
+      transform: translate(-50%, 0);
+      font-size: 0.875rem;
+    }
+  }
+
+  li.isVisible {
     opacity: 1;
-  }
-
-  @media (max-width: 959px) {
-    option {
-      transform: translate(calc(-1 * var(--sugar-option-offset)), 0);
-      font-size: 0.75rem;
-    }
-
-    option.nearStart {
-      transform: translate(-10%, 0);
-    }
-
-    option.nearEnd {
-      transform: translate(-90%, 0);
-    }
   }
 
   input {
     -webkit-appearance: none;
-    margin: -16px -8px 0;
+    position: absolute;
+    top: -16px;
     padding: 0;
-    width: calc(100% + 16px);
+    width: 100%;
     height: 48px;
     background-color: transparent;
     cursor: pointer;
@@ -99,7 +98,7 @@
   input::-webkit-slider-thumb {
     -webkit-appearance: none;
     box-sizing: content-box;
-    border: 2px solid var(--sugar-text-inverted);
+    border: 2px solid var(--bg, #f9f9f9);
     width: 15px;
     height: 40px;
     background-color: transparent;
@@ -109,9 +108,12 @@
   }
 
   input::-moz-range-thumb {
-    -webkit-appearance: none;
+    appearance: none;
     box-sizing: content-box;
-    border: 2px solid var(--sugar-text-inverted);
+    border: 2px solid var(--bg, #f9f9f9);
+    border-top: none;
+    border-bottom: none;
+    border-radius: 0;
     width: 15px;
     height: 40px;
     background-color: transparent;
