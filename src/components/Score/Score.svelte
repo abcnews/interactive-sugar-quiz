@@ -17,7 +17,7 @@
     left: 50%;
     transform: translate(-50%, 0);
     background-color: #eee;
-    color: #666;
+    color: var(--sugar-color-grayscale-3);
     font-family: ABCSans, sans-serif;
     font-weight: bold;
     font-size: 1rem;
@@ -36,7 +36,7 @@
   div:nth-child(2) {
     margin-left: 12px;
     margin-right: auto;
-    color: var(--sugar-primary-colour);
+    color: var(--sugar-color-primary);
     font-size: 1.375rem;
     font-family: ABCSerif, sans-serif;
     letter-spacing: 0.05ch;

@@ -1,8 +1,13 @@
 :root {
-  --sugar-text: #000;
-  --sugar-text-inverted: #fcfcfc;
-  --sugar-primary-colour: #0d5490;
-  --sugar-primary-inactive-colour: #ddd;
-  --sugar-positive-colour: #269a49;
-  --sugar-scale-colour: var(--sugar-primary-inactive-colour);
+  --sugar-color-white: #fff;
+  --sugar-color-black: #000;
+  --sugar-color-grayscale-1: #f9f9f9;
+  --sugar-color-grayscale-2: #ddd;
+  --sugar-color-grayscale-3: #666;
+  --sugar-color-grayscale-4: #333;
+  --sugar-color-primary: #0d5490;
+  --sugar-color-secondary: #478ccc;
+  --sugar-color-tertiary: #00cfff;
+  --sugar-color-positive: #269a49;
+  --sugar-color-text: var(--sugar-color-black);
 }

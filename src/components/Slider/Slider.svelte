@@ -36,6 +36,7 @@
 
 <style>
   div {
+    z-index: 1;
     position: relative;
     margin: 0 -8px;
     width: calc(100% + 16px);
@@ -76,7 +77,7 @@
     padding: 2px;
     width: 19px;
     height: 44px;
-    background-color: var(--bg, #f9f9f9);
+    background-color: var(--bg, var(--sugar-color-grayscale-1));
     background-image: url('./icons/handle.svg');
     background-repeat: no-repeat;
     background-position: 2px 2px;
@@ -90,7 +91,7 @@
     padding: 2px;
     width: 19px;
     height: 44px;
-    background-color: var(--bg, #f9f9f9);
+    background-color: var(--bg, var(--sugar-color-grayscale-1));
     background-image: url('./icons/handle.svg');
     background-repeat: no-repeat;
     background-position: 2px 2px;
@@ -114,16 +115,17 @@
     left: var(--sugar-option-offset);
     margin: 0;
     padding: 0;
-    color: var(--sugar-primary-colour);
+    color: var(--sugar-color-primary);
     font-size: 0.75rem;
     font-weight: bold;
+    letter-spacing: 0.05ch;
     white-space: nowrap;
   }
 
   @media (min-width: 960px) {
     li {
       transform: translate(-50%, 0);
-      font-size: 0.875rem;
+      /* font-size: 0.875rem; */
     }
   }
 

@@ -20,6 +20,7 @@
 <style>
   p {
     margin: 0 0 2rem;
+    color: var(--sugar-color-grayscale-4);
     font-family: ABCSerif, sans-serif;
     font-size: 1.25rem;
     font-weight: 700;
@@ -37,6 +38,6 @@
   }
 
   span {
-    color: var(--sugar-positive-colour);
+    color: var(--sugar-color-positive);
   }
 </style>

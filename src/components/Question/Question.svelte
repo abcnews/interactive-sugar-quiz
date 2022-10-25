@@ -12,7 +12,7 @@
 
   let { answer, comment, name, options, text } = QUESTIONS[questionKey];
   let [textPreName, textPostName]: string[] = text.split('*');
-  let estimate = Math.floor(options.length / 2);
+  let estimate = Math.floor((options.length - 1) / 2);
   let hasGuessed = false;
 
   $: distance = $distances[index];
@@ -21,7 +21,7 @@
 <div>
   <h2>{textPreName}<strong>{name}</strong>{textPostName} before you reach six teaspoons of&nbsp;sugar?</h2>
   <Illustration {questionKey} frame={distance !== null ? answer : estimate} />
-  <Graphic {questionKey} bind:estimate bind:hasGuessed />
+  <Graphic {questionKey} {index} bind:estimate bind:hasGuessed />
   {#if distance === null}
     <Buttons {questionKey} {index} bind:estimate bind:hasGuessed />
   {:else}
@@ -53,8 +53,8 @@
     margin: 0;
     font-size: 1.25rem;
     font-weight: normal;
-    text-shadow: 0 0 1px var(--sugar-text-inverted), 0 0 2px var(--sugar-text-inverted),
-      0 0 3px var(--sugar-text-inverted);
+    text-shadow: 0 0 1px var(--sugar-color-grayscale-1), 0 0 2px var(--sugar-color-grayscale-1),
+      0 0 3px var(--sugar-color-grayscale-1);
   }
 
   @media (min-width: 960px) {
