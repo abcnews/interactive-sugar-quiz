@@ -15,14 +15,15 @@
     type="range"
     max={options.length - 1}
     bind:value={estimate}
+    aria-valuetext={getMeasuresSegments(options[estimate]).join(' ')}
     on:mousedown={onInteract}
     on:touchstart={onInteract}
   />
-  <ul>
-    {#each options as option, optionIndex}
+  <ul role="none">
+    {#each options as option, index}
       <li
-        style={`--sugar-option-offset: ${(optionIndex / (options.length - 1)) * 100}%`}
-        class:isVisible={estimate === optionIndex}
+        style={`--sugar-option-offset: ${(index / (options.length - 1)) * 100}%`}
+        class:isVisible={estimate === index}
       >
         {getMeasuresSegments(option).join(' ')}
       </li>
