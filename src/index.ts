@@ -1,7 +1,6 @@
 import { whenOdysseyLoaded } from '@abcnews/env-utils';
 import { getMountValue, selectMounts } from '@abcnews/mount-utils';
 import Question from '$components/Question/Question.svelte';
-import Report from '$components/Report/Report.svelte';
 import Score from '$components/Score/Score.svelte';
 import '$components/root.css';
 import { QUESTIONS } from '$lib/data';
@@ -25,7 +24,6 @@ whenOdysseyLoaded.then(() => {
   const questionsMounts = mounts.filter(
     ({ componentName, variant }) => componentName === 'question' && !!QUESTIONS[variant]
   );
-  const reportMount = mounts.find(({ componentName }) => componentName === 'report');
   const scoreMount = mounts.find(({ componentName }) => componentName === 'score');
 
   distances.set(questionsMounts.map(() => null));
@@ -39,13 +37,6 @@ whenOdysseyLoaded.then(() => {
       }
     });
   });
-
-  if (reportMount) {
-    new Report({
-      target: reportMount.el,
-      props: {}
-    });
-  }
 
   if (scoreMount) {
     scoreMount.el.style.setProperty('bottom', '0');
