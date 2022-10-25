@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { stats } from '../../lib/stores';
+  import { stats } from '$lib/stores';
 
   $: hasAnsweredAll = $stats.numAnswered === $stats.numTotal;
 </script>

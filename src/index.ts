@@ -1,15 +1,23 @@
 import { whenOdysseyLoaded } from '@abcnews/env-utils';
 import { getMountValue, selectMounts } from '@abcnews/mount-utils';
-import Question from './components/Question/Question.svelte';
-import Report from './components/Report/Report.svelte';
-import QUESTIONS from './lib/questions';
-import { scores } from './lib/stores';
+import Question from '$components/Question/Question.svelte';
+import Report from '$components/Report/Report.svelte';
+import Score from '$components/Score/Score.svelte';
+import '$components/root.css';
+import { QUESTIONS } from '$lib/data';
+import { distances } from '$lib/stores';
+
+type Mount = {
+  el: HTMLElement;
+  componentName: string;
+  variant: string;
+};
 
 whenOdysseyLoaded.then(() => {
-  const mounts = selectMounts('sugar').map(el => {
+  const mounts: Mount[] = selectMounts('sugar').map(el => {
     const [, componentName, variant] = getMountValue(el).split(':');
     return {
-      el,
+      el: el as unknown as HTMLElement,
       componentName,
       variant
     };
@@ -18,8 +26,9 @@ whenOdysseyLoaded.then(() => {
     ({ componentName, variant }) => componentName === 'question' && !!QUESTIONS[variant]
   );
   const reportMount = mounts.find(({ componentName }) => componentName === 'report');
+  const scoreMount = mounts.find(({ componentName }) => componentName === 'score');
 
-  scores.set(questionsMounts.map(() => null));
+  distances.set(questionsMounts.map(() => null));
 
   questionsMounts.forEach((mount, index) => {
     new Question({
@@ -34,6 +43,15 @@ whenOdysseyLoaded.then(() => {
   if (reportMount) {
     new Report({
       target: reportMount.el,
+      props: {}
+    });
+  }
+
+  if (scoreMount) {
+    scoreMount.el.style.setProperty('bottom', '0');
+    scoreMount.el.style.setProperty('position', 'sticky');
+    new Score({
+      target: scoreMount.el,
       props: {}
     });
   }

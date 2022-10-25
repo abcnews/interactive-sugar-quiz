@@ -1,8 +1,8 @@
-export const DISTANCE_POINTS = [10, 5, 2, 1];
+export const DISTANCES_SCORES = [10, 5, 2, 1];
 
-export const MAX_QUESTION_SCORE = Math.max(...DISTANCE_POINTS);
+export const MAX_QUESTION_SCORE = Math.max(...DISTANCES_SCORES);
 
-export const DEFAULT_FEEDBACK = {
+export const FEEDBACK = {
   correct: 'Correct!',
   close: 'Almost right!',
   above: "It's lower!",

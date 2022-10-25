@@ -1,8 +1,11 @@
 <script lang="ts">
-  import { DEFAULT_FEEDBACK, DISTANCE_POINTS } from '../../lib/constants';
-  import QUESTIONS from '../../lib/questions';
-  import { scores, setScoreAtIndex } from '../../lib/stores';
-  import Score from '../Score/Score.svelte';
+  import { fly } from 'svelte/transition';
+  import Buttons from '$components/Buttons/Buttons.svelte';
+  import Feedback from '$components/Feedback/Feedback.svelte';
+  import Graphic from '$components/Graphic/Graphic.svelte';
+  import Illustration from '$components/Illustration/Illustration.svelte';
+  import { QUESTIONS } from '$lib/data';
+  import { distances } from '$lib/stores';
 
   export let index: number;
   export let questionKey: keyof typeof QUESTIONS;
@@ -10,48 +13,64 @@
   let { answer, comment, name, options, text } = QUESTIONS[questionKey];
   let [textPreName, textPostName]: string[] = text.split('*');
   let estimate = Math.floor(options.length / 2);
-  let feedback: string;
+  let hasGuessed = false;
 
-  $: score = $scores[index];
-  $: isAnswered = score !== null;
-  $: alt = `${options[isAnswered ? answer : estimate]} of ${name}`;
-  $: src = `${__webpack_public_path__}images/${questionKey}-${(isAnswered ? answer : estimate) + 1}.jpg`;
-
-  const guess = () => {
-    const distance = estimate - answer;
-    const absDistance = Math.abs(distance);
-    const score = absDistance >= DISTANCE_POINTS.length ? 0 : DISTANCE_POINTS[absDistance];
-    const feedbackKey: keyof typeof DEFAULT_FEEDBACK =
-      absDistance === 0 ? 'correct' : absDistance === 1 ? 'close' : distance > 0 ? 'above' : 'below';
-
-    feedback = DEFAULT_FEEDBACK[feedbackKey];
-    setScoreAtIndex(index, score);
-  };
+  $: distance = $distances[index];
 </script>
 
 <div>
-  <h2>{textPreName}<strong>{name}</strong>{textPostName} before you reach six teaspoons of sugar?</h2>
-  <img {alt} {src} />
-  {#if !isAnswered}
-    <select bind:value={estimate}>
-      {#each options as option, index}
-        <option value={index}>{option}</option>
-      {/each}
-    </select>
-    <button on:click={() => guess()}>Guess</button>
+  <h2>{textPreName}<strong>{name}</strong>{textPostName} before you reach six teaspoons of&nbsp;sugar?</h2>
+  <Illustration {questionKey} frame={distance !== null ? answer : estimate} />
+  <Graphic {questionKey} bind:estimate bind:hasGuessed />
+  {#if distance === null}
+    <Buttons {questionKey} {index} bind:estimate bind:hasGuessed />
   {:else}
-    <p>Answer: {options[answer]}</p>
-    <p>Your estimate: {options[estimate]}</p>
-    <p>Feedback: {feedback}</p>
-    <p>{comment}</p>
+    <Feedback {distance} />
+    <p in:fly={{ y: 32, delay: 1000, duration: 1000 }}>{comment}</p>
   {/if}
-  <Score />
 </div>
 
 <style>
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  div {
+    display: flow-root;
+    position: relative;
+    margin: 0 0 192px;
+    font-family: ABCSerif, sans-serif;
+  }
+
+  div::after {
+    content: '';
+    transform: translate(-50%, 0);
+    position: absolute;
+    bottom: -128px;
+    left: 50%;
+    width: 128px;
+    height: 2px;
+    background-color: #eee;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: normal;
+    text-shadow: 0 0 1px var(--sugar-text-inverted), 0 0 2px var(--sugar-text-inverted),
+      0 0 3px var(--sugar-text-inverted);
+  }
+
+  @media (min-width: 960px) {
+    h2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 264px;
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    margin: 0 auto;
+    max-width: 600px;
+    font-size: 1.125rem;
+    line-height: 1.5;
   }
 </style>

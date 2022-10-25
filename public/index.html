@@ -4,25 +4,42 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sugar Quiz</title>
+    <link rel="stylesheet" href="https://www.abc.net.au/res/fonts/abcsans/font.css" />
+    <link rel="stylesheet" href="https://www.abc.net.au/res/fonts/abcserif/font.css" />
     <style>
       body {
+        box-sizing: border-box;
+        margin: 0;
         background-color: #f9f9f9;
+        overflow-x: hidden;
+      }
+
+      main {
+        position: relative;
+        margin: 0 auto;
+        max-width: 980px;
+        padding: 0 16px;
       }
     </style>
     <script src="index.js"></script>
   </head>
   <body>
-    <div data-mount id="sugar:question:Coke"></div>
-    <div data-mount id="sugar:question:WeetBix"></div>
-    <div data-mount id="sugar:question:NutriGrain"></div>
-    <div data-mount id="sugar:question:OrangeJuice"></div>
-    <div data-mount id="sugar:question:RaisinToast"></div>
-    <div data-mount id="sugar:question:Yoghurt"></div>
-    <div data-mount id="sugar:question:Jam"></div>
-    <div data-mount id="sugar:question:BakedBeans"></div>
-    <div data-mount id="sugar:question:Ketchup"></div>
-    <div data-mount id="sugar:question:Chocolate"></div>
-    <div data-mount id="sugar:report"></div>
+    <main>
+      <p>[content before quiz]</p>
+      <div data-mount id="sugar:question:Coke"></div>
+      <div data-mount id="sugar:question:WeetBix"></div>
+      <div data-mount id="sugar:question:NutriGrain"></div>
+      <div data-mount id="sugar:question:OrangeJuice"></div>
+      <div data-mount id="sugar:question:RaisinToast"></div>
+      <div data-mount id="sugar:question:Yoghurt"></div>
+      <div data-mount id="sugar:question:Jam"></div>
+      <div data-mount id="sugar:question:BakedBeans"></div>
+      <div data-mount id="sugar:question:Ketchup"></div>
+      <div data-mount id="sugar:question:Chocolate"></div>
+      <div data-mount id="sugar:score"></div>
+      <div data-mount id="sugar:report"></div>
+      <p>[content after quiz]</p>
+    </main>
     <!-- Mock Odyssey's loaded event so the `whenOdysseyLoaded` promise resolves -->
     <script>
       window.dispatchEvent(new CustomEvent('odyssey:api'));

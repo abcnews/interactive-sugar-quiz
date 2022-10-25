@@ -13,12 +13,12 @@ export interface Question {
   comment: string;
 }
 
-const QUESTIONS: Record<string, Question> = {
+export const QUESTIONS: Record<string, Question> = {
   Coke: {
     name: 'Coke',
     text: 'How much * can you drink',
     units: 'milliletres',
-    options: ['125ml | 1/3 can', '250ml | 2/3 can', '375ml | 1 can', '500ml | 1 1/3 can', '625ml | 1 2/3 can'],
+    options: ['125ml | ⅓ can', '250ml | ⅔ can', '375ml | 1 can', '500ml | 1⅓ can', '625ml | 1⅔ can'],
     answer: 1,
     serving: {
       label: '375ml | 1 can',
@@ -32,13 +32,13 @@ const QUESTIONS: Record<string, Question> = {
     text: 'How many cups of * can you drink',
     units: 'milliletres',
     options: [
-      '83.3ml | 1/3 cup',
-      '166.7ml | 2/3 cup',
+      '83.3ml | ⅓ cup',
+      '166.7ml | ⅔ cup',
       '250ml | 1 cup',
-      '333.3ml | 1 1/3 cups',
-      '416.7ml | 1 2/3 cups',
+      '333.3ml | 1 ⅓ cups',
+      '416.7ml | 1 ⅔ cups',
       '500ml | 2 cups',
-      '583.3ml | 2 1/3 cups'
+      '583.3ml | 2 ⅓ cups'
     ],
     answer: 3,
     serving: {
@@ -104,7 +104,7 @@ const QUESTIONS: Record<string, Question> = {
       '808.5g | 49 biscuits',
       '825g | 50 biscuits'
     ],
-    imageOffset: 100,
+    imageOffset: -48,
     answer: 44,
     serving: {
       label: '33g | 2 biscuits',
@@ -118,17 +118,17 @@ const QUESTIONS: Record<string, Question> = {
     text: 'How many cups of * can you eat',
     units: 'grams',
     options: [
-      '13.3g | 1/3 cup',
-      '26.7g | 2/3 cup',
+      '13.3g | ⅓ cup',
+      '26.7g | ⅔ cup',
       '40g | 1 cup',
-      '53.3g | 1 1/3 cups',
-      '66.7g | 1 2/3 cups',
+      '53.3g | 1⅓ cups',
+      '66.7g | 1⅔ cups',
       '80g | 2 cups',
-      '93.3g | 2 1/3 cups',
-      '106.7g | 2 2/3 cups',
+      '93.3g | 2⅓ cups',
+      '106.7g | 2⅔ cups',
       '120g | 3 cups',
-      '133.3g | 3 1/3 cups',
-      '146.7g | 3 2/3 cups',
+      '133.3g | 3⅓ cups',
+      '146.7g | 3⅔ cups',
       '160g | 4 cups'
     ],
     answer: 6,
@@ -164,11 +164,11 @@ const QUESTIONS: Record<string, Question> = {
     text: 'How many tubs of * can you eat',
     units: 'grams',
     options: [
-      '87.5g | 1/2 tub',
+      '87.5g | ½ tub',
       '175g | 1 tub',
-      '262.5g | 1 1/2 tubs',
+      '262.5g | 1½ tubs',
       '350g | 2 tubs',
-      '437.5g | 2 1/2 tubs',
+      '437.5g | 2½ tubs',
       '525g | 3 tubs'
     ],
     answer: 1,
@@ -233,17 +233,10 @@ const QUESTIONS: Record<string, Question> = {
     name: 'baked beans',
     text: 'How many cans of * can you eat',
     units: 'grams',
-    options: [
-      '147g | 1/3 can',
-      '293g | 2/3 can',
-      '440g | 1 can',
-      '560g | 1 1/3 cans',
-      '733g | 1 2/3 cans',
-      '880g | 2 cans'
-    ],
+    options: ['147g | ⅓ can', '293g | ⅔ can', '440g | 1 can', '560g | 1⅓ cans', '733g | 1⅔ cans', '880g | 2 cans'],
     answer: 3,
     serving: {
-      label: '210g | 1/2 can',
+      label: '210g | ½ can',
       pct: 8.5948158
     },
     comment:
@@ -254,19 +247,19 @@ const QUESTIONS: Record<string, Question> = {
     text: 'How many pieces of * can you eat',
     units: 'grams',
     options: [
-      '7.1g | 1/7 bar',
-      '14.3g | 2/7 bar',
-      '21.4g | 3/7 bar',
-      '28.6g | 4/7 bar',
-      '35.7g | 5/7 bar',
-      '42.9g | 6/7 bar',
+      '7.1g | 1 piece',
+      '14.3g | 2 pieces',
+      '21.4g | 3 pieces',
+      '28.6g | 4 pieces',
+      '35.7g | 5 pieces',
+      '42.9g | 6 pieces',
       '50g | 1 bar',
-      '57.1g | 1 1/7 bars',
-      '64.3g | 1 2/7 bars',
-      '71.4g | 1 3/7 bars',
-      '78.6g | 1 4/7 bars',
-      '85.7g | 1 5/7 bars',
-      '42.9g | 1 6/7 bars',
+      '57.1g | 8 pieces',
+      '64.3g | 9 pieces',
+      '71.4g | 10 pieces',
+      '78.6g | 11 pieces',
+      '85.7g | 12 pieces',
+      '42.9g | 13 pieces',
       '100g | 2 bars'
     ],
     answer: 5,
@@ -278,5 +271,3 @@ const QUESTIONS: Record<string, Question> = {
       "Chocolate is a treat, not a health food. It probably contains more sugar than you realise, but you're also probably not eating it for breakfast."
   }
 };
-
-export default QUESTIONS;

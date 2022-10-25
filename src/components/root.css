@@ -1,0 +1,8 @@
+:root {
+  --sugar-text: #000;
+  --sugar-text-inverted: #fcfcfc;
+  --sugar-primary-colour: #0d5490;
+  --sugar-primary-inactive-colour: #ddd;
+  --sugar-positive-colour: #269a49;
+  --sugar-scale-colour: var(--sugar-primary-inactive-colour);
+}
