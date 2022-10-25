@@ -12,13 +12,13 @@
   $: src = getImageURL(questionKey, frame);
 
   onMount(() => {
-    requestAnimationFrame(() => {
+    setTimeout(() => {
       options.forEach((_option, index) => {
         const imgEl = new Image();
 
         imgEl.src = getImageURL(questionKey, index);
       });
-    });
+    }, 1000);
   });
 </script>
 
