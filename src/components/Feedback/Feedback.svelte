@@ -20,7 +20,7 @@
 <style>
   p {
     margin: 0 0 2rem;
-    color: var(--sugar-color-grayscale-4);
+    color: var(--sugar-color-grayscale-5);
     font-family: ABCSerif, sans-serif;
     font-size: 1.25rem;
     font-weight: 700;

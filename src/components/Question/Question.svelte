@@ -46,7 +46,7 @@
     left: 50%;
     width: 128px;
     height: 2px;
-    background-color: #eee;
+    background-color: var(--sugar-color-grayscale-2);
   }
 
   h2 {

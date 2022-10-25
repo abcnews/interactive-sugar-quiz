@@ -2,12 +2,13 @@
   --sugar-color-white: #fff;
   --sugar-color-black: #000;
   --sugar-color-grayscale-1: #f9f9f9;
-  --sugar-color-grayscale-2: #ddd;
-  --sugar-color-grayscale-3: #666;
-  --sugar-color-grayscale-4: #333;
-  --sugar-color-primary: #0d5490;
-  --sugar-color-secondary: #478ccc;
-  --sugar-color-tertiary: #00cfff;
+  --sugar-color-grayscale-2: #e5e5e5;
+  --sugar-color-grayscale-3: #bbb;
+  --sugar-color-grayscale-4: #666;
+  --sugar-color-grayscale-5: #333;
+  --sugar-color-bluescale-1: #00cfff;
+  --sugar-color-bluescale-2: #478ccc;
+  --sugar-color-bluescale-3: #0d5490;
   --sugar-color-positive: #269a49;
   --sugar-color-text: var(--sugar-color-black);
 }

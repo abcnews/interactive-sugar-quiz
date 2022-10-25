@@ -115,7 +115,7 @@
     left: var(--sugar-option-offset);
     margin: 0;
     padding: 0;
-    color: var(--sugar-color-primary);
+    color: var(--sugar-color-bluescale-3);
     font-size: 0.75rem;
     font-weight: bold;
     letter-spacing: 0.05ch;

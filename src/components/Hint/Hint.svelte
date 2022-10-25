@@ -30,7 +30,7 @@
     position: absolute;
     top: 24px;
     left: 50%;
-    color: var(--sugar-color-primary);
+    color: var(--sugar-color-bluescale-3);
     font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;

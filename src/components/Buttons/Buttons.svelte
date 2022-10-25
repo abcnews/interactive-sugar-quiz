@@ -111,7 +111,7 @@
     width: 28px;
     height: auto;
     vertical-align: middle;
-    stroke: var(--sugar-color-primary);
+    stroke: var(--sugar-color-bluescale-3);
   }
 
   .guesser {
@@ -119,7 +119,7 @@
     right: 50%;
     width: 160px;
     height: 34px;
-    background-color: var(--sugar-color-tertiary);
+    background-color: var(--sugar-color-bluescale-1);
     letter-spacing: 0.05ch;
   }
 
