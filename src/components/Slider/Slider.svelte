@@ -71,6 +71,7 @@
 
   input::-webkit-slider-thumb {
     -webkit-appearance: none;
+
     padding: 2px;
     width: 19px;
     height: 44px;
@@ -81,6 +82,10 @@
   }
 
   input::-moz-range-thumb {
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0;
+
     padding: 2px;
     width: 19px;
     height: 44px;
