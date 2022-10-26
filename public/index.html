@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="https://www.abc.net.au/res/fonts/abcsans/font.css" />
     <link rel="stylesheet" href="https://www.abc.net.au/res/fonts/abcserif/font.css" />
     <style>
-      body {
+      html {
         box-sizing: border-box;
+      }
+
+      html *,
+      html *::before,
+      html *::after {
+        box-sizing: inherit;
+      }
+
+      body {
         margin: 0;
         background-color: var(--sugar-color-grayscale-1);
-        overflow-x: hidden;
       }
 
       main {

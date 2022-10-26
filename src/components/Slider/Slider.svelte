@@ -3,6 +3,7 @@
   import Hint from '$components/Hint/Hint.svelte';
   import { hints } from '$lib/stores';
   import { getMeasuresSegments } from '$lib/utils';
+  import handleURL from './handle.svg';
 
   export let options: string[];
   export let estimate: number;
@@ -18,6 +19,7 @@
     aria-valuetext={getMeasuresSegments(options[estimate]).join(' ')}
     on:mousedown={onInteract}
     on:touchstart={onInteract}
+    style={`--sugar-handle-image: url("${handleURL}")`}
   />
   <ul role="none">
     {#each options as option, index}
@@ -78,7 +80,7 @@
     width: 19px;
     height: 44px;
     background-color: var(--bg, var(--sugar-color-grayscale-1));
-    background-image: url('./icons/handle.svg');
+    background-image: var(--sugar-handle-image);
     background-repeat: no-repeat;
     background-position: 2px 2px;
   }
@@ -92,7 +94,7 @@
     width: 19px;
     height: 44px;
     background-color: var(--bg, var(--sugar-color-grayscale-1));
-    background-image: url('./icons/handle.svg');
+    background-image: var(--sugar-handle-image);
     background-repeat: no-repeat;
     background-position: 2px 2px;
   }
