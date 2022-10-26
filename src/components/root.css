@@ -14,11 +14,11 @@
 }
 
 html {
-  overflow-x: visible;
+  overflow-x: visible !important;
 }
 
 body {
-  overflow: visible;
+  overflow: visible !important;
 }
 
 [data-mount][id^='sugar:question:'] {
