@@ -34,7 +34,7 @@
   section {
     margin: 0 auto;
     padding: 8px 16px;
-    max-width: 600px;
+    max-width: 384px;
     display: flex;
     align-items: center;
   }

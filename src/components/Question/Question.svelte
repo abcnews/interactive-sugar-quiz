@@ -57,8 +57,8 @@
 
   p {
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 608px;
     font-size: 1.125rem;
-    line-height: 1.5;
+    line-height: 1.666666667;
   }
 </style>

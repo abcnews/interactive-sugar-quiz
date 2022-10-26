@@ -39,8 +39,6 @@ whenOdysseyLoaded.then(() => {
   });
 
   if (scoreMount) {
-    scoreMount.el.style.setProperty('bottom', '0');
-    scoreMount.el.style.setProperty('position', 'sticky');
     new Score({
       target: scoreMount.el,
       props: {}
