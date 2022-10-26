@@ -12,3 +12,13 @@
   --sugar-color-positive: #269a49;
   --sugar-color-text: var(--sugar-color-black);
 }
+
+body {
+  overflow: visible;
+}
+
+[data-mount][id^='sugar:question'] {
+  margin: 0 0 128px;
+  padding: 0 16px;
+  width: 100%;
+}

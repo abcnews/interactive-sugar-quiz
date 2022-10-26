@@ -18,14 +18,18 @@
         position: relative;
         margin: 0 auto;
         max-width: 980px;
-        padding: 0 16px;
+      }
+
+      main > pre {
+        text-align: center;
+        font-size: 1.5rem;
       }
     </style>
     <script src="index.js"></script>
   </head>
   <body>
     <main>
-      <p>[content before quiz]</p>
+      <pre>[content before quiz]</pre>
       <div data-mount id="sugar:question:Coke"></div>
       <div data-mount id="sugar:question:WeetBix"></div>
       <div data-mount id="sugar:question:NutriGrain"></div>
@@ -37,7 +41,7 @@
       <div data-mount id="sugar:question:Ketchup"></div>
       <div data-mount id="sugar:question:Chocolate"></div>
       <div data-mount id="sugar:score"></div>
-      <p>[content after quiz]</p>
+      <pre>[content after quiz]</pre>
     </main>
     <!-- Mock Odyssey's loaded event so the `whenOdysseyLoaded` promise resolves -->
     <script>

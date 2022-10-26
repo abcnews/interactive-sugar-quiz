@@ -34,19 +34,7 @@
   div {
     display: flow-root;
     position: relative;
-    margin: 0 0 192px;
     font-family: ABCSerif, sans-serif;
-  }
-
-  div::after {
-    content: '';
-    transform: translate(-50%, 0);
-    position: absolute;
-    bottom: -128px;
-    left: 50%;
-    width: 128px;
-    height: 2px;
-    background-color: var(--sugar-color-grayscale-2);
   }
 
   h2 {
